@@ -1,0 +1,114 @@
+# Problem 1:
+# Ask the user to enter a list of student scores (one by one).
+# Use a while loop to continuously accept scores until the user enters a negative number.
+# For each score, use nested if statements to categorize the score:
+# 90-100: Print "Excellent"
+# 70-89: Print "Good"
+# 50-69: Print "Pass"
+# Below 50: Print "Fail"
+# Stop the loop and print the final count of each category when the user enters a negative number.
+
+score = int(input("Enter a list of student scores:"))
+
+# while score >0:             #  will accept scores unless user enters a number below zero
+#     continue
+#     score = int(input("Enter a list of student scores:"))
+if score >= 50 or score <=69:             
+      print("Pass")
+      score = int(input("Enter a list of student scores:"))
+if score >=90: 
+    print("Excellent")
+    score = int(input("Enter a list of student scores:"))
+if score >70 or score <=89:
+    print("Good")
+    score = int(input("Enter a list of student scores:"))
+if score <50:
+    print("fail")
+    score = int(input("Enter a list of student scores:"))
+
+while score >0:             #  will accept scores unless user enters a number below zero 
+    continue   
+    score = int(input("Enter a list of student scores:"))
+    if score <0:
+        break
+        print()
+
+
+# Problem 2: Even and Odd Counter with Conditions
+# Ask the user for a starting and ending number.
+# Use a for loop to iterate from the starting to the ending number.
+# Inside the loop:
+# Use nested if to check if the number is both even and greater than 10. If true, count it as a “special even” number.
+# If it’s odd and less than 20, count it as a “special odd” number.
+# Print the counts for both “special even” and “special odd” numbers.
+
+start_number = int(input("Please input a starting number."))
+end_number = int(input("Please input an ending number."))
+
+for x in range (start_number, end_number +1):   #iterate from start to end number 
+    if (x%2) == 0:                                      #checks if number is even 
+        if x>10:                                      # checks if number is greater than 10
+            print("This is a special even number")
+        else:
+            print("The number is not greater than 10.")  #if one conditions is not met, then its not special even 
+    else: 
+        print("Your number is not a special even number.")      #if the other condition is not met, then it is not special even
+
+    if (x%2) != 0:                                         #checks if number is odd
+        if x < 20:                                         #checks if number is less than 20
+          print("This is a special odd number.")
+        else:                                            #if one condition is not met, it is not a special odd number 
+            print("The number is not less than 20.")
+    else:                                                #if the other condition is not met, it is not a special odd number
+        print("This is not a special odd number.")
+
+################################################################## CORRECT CODE ########################################################################################
+
+#1
+# Continuously accept scores until a negative number is entered
+while True:
+    score = int(input("Enter a student score (input a negative number to stop): "))
+   
+    if score < 0:
+        print("Exiting...")
+        break  # Exit the loop if a negative number is entered
+   
+    # Categorize the score based on given conditions
+    if 90 <= score <= 100:
+        print("Excellent")
+    elif 70 <= score <= 89:
+        print("Good")
+    elif 50 <= score <= 69:
+        print("Pass")
+    elif 0 <= score < 50:
+        print("Fail")
+    else:
+        print("That test score is out of range")
+
+
+#2
+start_number = int(input("Please input a starting number: "))
+end_number = int(input("Please input an ending number: "))
+
+special_even_count = 0
+special_odd_count = 0
+
+# Iterate from start to end number
+for x in range(start_number, end_number + 1):
+    if x % 2 == 0:  # Check if number is even
+        if x > 10:
+            print(f"{x} is a special even number")
+            special_even_count += 1
+        else:
+            print(f"{x} is even but not greater than 10")
+    else:  # Number is odd
+        if x < 20:
+            print(f"{x} is a special odd number")
+            special_odd_count += 1
+        else:
+            print(f"{x} is odd but not less than 20")
+
+# Print the counts after the loop ends
+print("\nSummary:")
+print(f"Total special even numbers: {special_even_count}")
+print(f"Total special odd numbers: {special_odd_count}")
